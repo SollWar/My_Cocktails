@@ -60,7 +60,11 @@ class MainActivity : ComponentActivity() {
                         }
                         composable("AddCocktailsScreen") {
                             AddCocktailScreen(
-                                onSaveButtonClick = {navHostController.popBackStack()},
+                                onSaveButtonClick = {navHostController.navigate("AllCocktailsScreen") {
+                                    popUpTo("AllCocktailsScreen") {
+                                        inclusive = true
+                                    }
+                                } },
                                 onCancelButtonClick = {navHostController.popBackStack()}
                             )
                         }
